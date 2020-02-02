@@ -2,7 +2,7 @@
     <v-form >
     <v-container>
           <h1>Inbox</h1>
-    
+          
           <p>{{task}}  {{date}} </p>
           <v-btn v-if="seen1" text v-on:click='showAddTask'>
             <v-icon left>add_circle_outline</v-icon>
@@ -10,7 +10,7 @@
           </v-btn>
           <div v-if="seen">
               <v-row >
-                <v-col cols="8" >
+                <v-col cols="12" lg="8" sm="6">
                     <v-text-field
                         v-on:keyup.enter="EnterTask"
                         v-model="task_name"
@@ -19,7 +19,7 @@
                         outlined
                     ></v-text-field>
                 </v-col>
-                <v-col cols="4">
+                <v-col cols="12" lg="4" sm="6">
                     <v-text-field 
                         v-on:keyup.enter="EnterTask"
                         v-model="task_date"
