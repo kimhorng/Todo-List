@@ -13,7 +13,6 @@
                 v-model="dialog"
                 width="400"
                 class="dialog"
-                persistent
             >
             <template v-slot:activator="{ on }">
                 <v-btn
@@ -34,7 +33,7 @@
             app
             :mini-variant.sync="mini">
             <v-list-item class="px-2">
-            <v-list-item-title>Task</v-list-item-title>
+            <v-list-item-title><v-icon class="mr-5 ml-3">mdi-note</v-icon>    Task</v-list-item-title>
 
             <v-btn
               icon

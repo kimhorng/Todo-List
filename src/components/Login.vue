@@ -30,7 +30,7 @@
                 <v-dialog
                          v-model="dialog"
                          width="400px"
-                         persistent>
+                         >
                          <template v-slot:activator="{on}">
                             <v-btn 
                             class="info"
