@@ -4,7 +4,7 @@
                 <v-btn icon @click="drawer=!drawer" >
                 <v-icon>menu</v-icon>
             </v-btn>
-            <v-toolbar-title>TODOIST</v-toolbar-title>
+            <v-toolbar-title>K.I.Tist</v-toolbar-title>
             <v-spacer v-for="n in 8" :key="n"></v-spacer>
             <v-btn icon>
                 <v-icon >notifications_none</v-icon>

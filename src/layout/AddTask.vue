@@ -1,10 +1,13 @@
 <template>
     <div>
+        <!-- When cliked, all the ID to the data -->
         <form @submit="addTask" >
+
             <v-btn v-if="seen1" text v-on:click='showAddTask'>
                 <v-icon left>add_circle_outline</v-icon>
                 <span>Add Task</span>
             </v-btn>
+
             <div v-if="seen">
               <v-row >
                 <v-col cols="12" lg="8" sm="6">
@@ -15,14 +18,15 @@
                         outlined
                     ></v-text-field>
                 </v-col>
+
                 <v-col cols="12" lg="4" sm="6">
                     <v-text-field 
                         v-model="date"
                         label="Schedule"
                         outlined
                         type ="date"
-                        >
-                </v-text-field>
+                        />
+        
                     </v-col>
                 </v-row>
                 <v-btn type="submit" color="primary">Add Task</v-btn>
