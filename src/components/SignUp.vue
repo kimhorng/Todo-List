@@ -40,7 +40,7 @@
                          @click:append="showPassword1 =! showPassword1"/>
             <v-divider></v-divider>
             <v-layout class="mt-4" justify-space-around="">
-                <v-btn class="info">Register</v-btn>
+                <v-btn color="black white--text">Register</v-btn>
             </v-layout>
             </v-alert>
     </v-card>

@@ -1,9 +1,9 @@
 <template>
-  <div class="ml-4">
-    <h1>Today</h1>
+  <v-card height="100%">
+    <h1 class="ml-2 pa-4">Today</h1>
       <Tasks v-bind:tasks="tasks" />
       <AddTaskToday v-on:add-task="addTask"/>
-  </div>
+  </v-card>
 </template>
 
 <script>

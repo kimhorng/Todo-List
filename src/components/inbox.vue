@@ -1,6 +1,6 @@
 <template>
-  <div class="ml-4">
-    <h1>Inbox</h1>
+  <div height="100%">
+    <h1 class="ml-2 pa-4">Inbox</h1>
       <Tasks v-bind:tasks="tasks"/>
       <AddTask v-on:add-task="addTask"/>
   </div>
