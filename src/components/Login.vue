@@ -25,15 +25,15 @@
                          id="password"
                          @click:append="showPassword =! showPassword"/>
             <v-divider></v-divider>
-            <v-layout class="mt-6" justify-space-around="">
-                <v-btn class="success" v-on="off">Sign in</v-btn>
+            <v-layout class="mt-6 mx-12" justify-space-around>
+                <v-btn color="grey black--text" v-on="off"><b>Sign in</b></v-btn>
                 <v-dialog
                          v-model="dialog"
                          width="400px"
                          >
                          <template v-slot:activator="{on}">
                             <v-btn 
-                            class="info"
+                            class="black white--text"
                             v-on="on"
                             text>Sign up</v-btn>
                          </template>

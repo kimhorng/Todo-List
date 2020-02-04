@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Today from '../components/Today.vue'
 import inbox from '../components/inbox.vue'
+import Noti from '../components/Notification.vue'
 // import Next7day from '../components/Next7day.vue'
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
   //   component: Next7day
     
   // }
+  {
+    path: '/Notification',
+    name: 'Notification',
+    component: Noti,
+  }
   
 ]
 

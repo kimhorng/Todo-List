@@ -1,6 +1,6 @@
 <template>
-    <div class="ml-4">
-        <form @submit="addTask" >
+<v-card class="ml-lg-6 ml-2 pa-6" width="95%">
+         <form @submit="addTask" >
             <v-btn v-if="seen1" text v-on:click='showAddTask'>
                 <v-icon left>add_circle_outline</v-icon>
                 <span>Add Task</span>
@@ -35,11 +35,13 @@
                 </v-flex>
                     </v-col>
                 </v-row>
-                <v-btn type="submit" color="primary">Add Task</v-btn>
-                <v-btn text v-if="seen" v-on:click.prevent='showAddTask'>cancle</v-btn>
+                <v-layout justify-end>
+                    <v-btn type="submit" color="primary">Add Task</v-btn>
+                <v-btn text v-if="seen" v-on:click.prevent='showAddTask' color="white" class="grey darken-3 ml-2">cancel</v-btn>    
+                </v-layout>   
             </div>
         </form>
-    </div>
+    </v-card>  
 </template>
 <script>
 export default {

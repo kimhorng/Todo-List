@@ -6,9 +6,10 @@
             </v-btn>
             <v-toolbar-title>K.I.Tist</v-toolbar-title>
             <v-spacer v-for="n in 8" :key="n"></v-spacer>
-            <v-btn icon>
-                <v-icon >notifications_none</v-icon>
-            </v-btn>
+            
+            <v-btn icon @click="showNoti">
+                <v-icon>notifications_none</v-icon>
+             </v-btn>
             <v-dialog
                 v-model="dialog"
                 width="400"
@@ -21,7 +22,7 @@
                     <v-icon >mdi-account-circle-outline</v-icon>
                 </v-btn>
             </template>
-                <Login/>
+                    <Login/>
                     <v-btn  color="black grey--text" @click="dialog = false">
                         <v-icon>mdi-arrow-left</v-icon>
                     </v-btn>
@@ -51,20 +52,22 @@
 <script>
 import Login from '../components/Login';
 import NavDrawer from '../pages/NavDrawer';
+
 export default {
     name : 'NavBar',
     components : {
         NavDrawer,
         Login,
+       
     },
     data (){
         return{
             drawer : false,
             dialog: false,
-            mini : true
+            mini : true,
+            noti: false,
         }
-    }
-}
+    },}
 </script>
 
 <style>

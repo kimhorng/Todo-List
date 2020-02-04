@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <!-- When cliked, all the ID to the data -->
+    <v-card width="95%" class="ml-lg-6 ml-3 pa-6"> 
+         <!-- When cliked, all the ID to the data -->
         <form @submit="addTask" >
 
             <v-btn v-if="seen1" text v-on:click='showAddTask'>
@@ -29,11 +29,13 @@
         
                     </v-col>
                 </v-row>
-                <v-btn type="submit" color="primary">Add Task</v-btn>
-                <v-btn text v-if="seen" v-on:click.prevent='showAddTask'>cancle</v-btn>
+                <v-layout justify-end="">
+                    <v-btn type="submit" color="primary">Add Task</v-btn>
+                <v-btn text v-if="seen" v-on:click.prevent='showAddTask' class="grey darken-3 ml-2" color="white">cancel</v-btn>
+                </v-layout>
             </div>
         </form>
-    </div>
+    </v-card>
 </template>
 <script>
 export default {
