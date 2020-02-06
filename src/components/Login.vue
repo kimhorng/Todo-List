@@ -1,66 +1,101 @@
 <template>
-    <v-layout justify-center>
-        <v-card width="400px" height="420px" dark>
-            <v-alert
-                    outlined
-                    border="bottom"
-                    colored-border
-                    color="black accent-4"
-                    elevation="2" height="425px">
-                    <v-layout justify-center>
-                <v-card-title class="mr-2"><h3>Login</h3></v-card-title>
-            </v-layout>
-            <v-text-field
-                         label="Username: "
-                         outlined=""
-                         class="mx-5 mt-6" prepend-icon="mdi-account"
-                         id="username"/>
-            <v-text-field
-                         label="Password: "
-                         :type="showPassword?'text':'password'"
-                         outlined=""
-                         class="mx-5"
-                         :append-icon="showPassword? 'mdi-eye':'mdi-eye-off'"
-                         prepend-icon="mdi-lock"
-                         id="password"
-                         @click:append="showPassword =! showPassword"/>
-            <v-divider></v-divider>
-            <v-layout class="mt-6 mx-12" justify-space-around>
-                <v-btn color="grey black--text" v-on="off"><b>Sign in</b></v-btn>
-                <v-dialog
-                         v-model="dialog"
-                         width="400px"
-                         >
-                         <template v-slot:activator="{on}">
-                            <v-btn 
-                            class="black white--text"
-                            v-on="on"
-                            text>Sign up</v-btn>
-                         </template>
-                         <SignUp/>
-                         <v-btn  color="black grey--text" @click="dialog = false">
-                            <v-icon>mdi-arrow-left</v-icon>
-                        </v-btn>
-                         </v-dialog>
-            </v-layout>
-            </v-alert>
+  <v-layout justify-center>
+    <v-card width="700px" height="500px" class="mx-auto loginCard" flat>
+      <v-tabs v-model="tab" centered class="pt-6">
+        <v-tab>
+          Login
+        </v-tab>
+        <v-tab>
+          Register
+        </v-tab>
+      </v-tabs>
+
+      <!-- Login Form -->
+      <v-tabs-items v-model="tab" class="mt-5">
+        <v-tab-item>
+          <v-layout justify-center>
+            <v-card flat width="60%">
+              <v-text-field
+                label="Username: "
+                class="mx-5 mt-6"
+                prepend-icon="mdi-account"
+                id="username"
+              />
+              <v-text-field
+                label="Password: "
+                :type="showPassword ? 'text' : 'password'"
+                class="mx-5"
+                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                prepend-icon="mdi-lock"
+                id="password"
+                @click:append="showPassword = !showPassword"
+              />
+              <v-checkbox label="Remember me!" class="ml-12" />
+              <v-btn class="info ml-12 mt-3" width="80%">Login</v-btn>
+            </v-card>
+          </v-layout>
+        </v-tab-item>
+
+        <!-- Register Form -->
+        <v-tab-item>
+          <v-layout justify-center>
+            <v-card flat width="60%">
+              <v-text-field
+                label="Username: "
+                class="mx-5"
+                prepend-icon="mdi-account"
+                id="username"
+              />
+              <v-text-field
+                label="Email:  "
+                class="mx-5"
+                prepend-icon="mdi-email"
+                id="email"
+              />
+              <v-text-field
+                label="Password: "
+                :type="showPassword ? 'text' : 'password'"
+                class="mx-5"
+                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                prepend-icon="mdi-lock"
+                id="password"
+                @click:append="showPassword = !showPassword"
+              />
+              <v-text-field
+                label="Confirm Password: "
+                :type="showPassword ? 'text' : 'password'"
+                class="mx-5"
+                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                prepend-icon="mdi-"
+                id="cofirmPassword"
+                @click:append="showPassword = !showPassword"
+              />
+              <v-checkbox
+                label="I aggred with the Terms and Conditions!"
+                class="ml-12"
+              />
+              <v-btn class="info ml-12" width="80%" text>Register</v-btn>
+            </v-card>
+          </v-layout>
+        </v-tab-item>
+      </v-tabs-items>
     </v-card>
-    </v-layout>
+  </v-layout>
 </template>
 
 <script>
-import SignUp from "../components/SignUp";
+// import SignUp from "../components/SignUp";
 export default {
-name:"Login",
-components:{
-    SignUp,
-},
-data : () => ({
+  name: "Login",
+  components: {
+    // SignUp
+  },
+  data: () => ({
     dialog: false,
     showPassword: false,
-})
-}
+    tab: null
+  })
+};
 </script>
 
-<style>
-</style>
+<style></style>
