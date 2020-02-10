@@ -2,8 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Today from '../components/Today.vue'
 import inbox from '../components/inbox.vue'
-import Noti from '../components/Notification.vue'
-// import Next7day from '../components/Next7day.vue'
+import Notification from '../components/Notification.vue'
+import Next7days from '../components/Next7days.vue'
+import Project from '../components/Project.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -18,16 +19,23 @@ const routes = [
     component: inbox
     
   },
-  // {
-  //   path : '/next7days',
-  //   name : 'next7days',
-  //   component: Next7day
+  {
+    path : '/next7days',
+    name : 'next7days',
+    component: Next7days
     
-  // }
+  },
+
   {
     path: '/Notification',
     name: 'Notification',
-    component: Noti,
+    component: Notification,
+  },
+  
+  {
+    path: '/project',
+    name: 'project',
+    component: Project,
   }
   
 ]

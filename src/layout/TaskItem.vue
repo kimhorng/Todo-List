@@ -3,21 +3,21 @@
         <v-card class="task-item pb-2 mb-5" dark="" width="90%" v-if="!deleted">
             <v-layout justify-space-between="">
                 <p class="ml-4">
-            <v-checkbox
-              v-model="ex4"
-              label="Task :"
-              color="success"
-              value="success"
-              hide-details
-               v-on:change="markComplete"  v-show="completed"
-            ></v-checkbox>
-            <span  v-show="completed" class="ml-12"><h2>{{task.title}}</h2></span>
-            <span v-show="completed"><sub>  ({{task.date}})</sub></span>
-            
-        </p>
-            <v-btn text class="mt-4 mr-4 " @click=" deleted = ! deleted" v-show="completed">
-                <v-icon flat>mdi-delete-circle-outline</v-icon>
-            </v-btn>
+                    <v-checkbox
+                    v-model="ex4"
+                    label="Task :"
+                    color="success"
+                    value="success"
+                    hide-details
+                    v-on:change="markComplete"  v-show="completed"
+                    ></v-checkbox>
+                    <span  v-show="completed" class="ml-12"><h2>{{task.title}}</h2></span>
+                    <span v-show="completed"><sub>  ({{task.date}})</sub></span>
+                    
+                </p>
+                    <v-btn text class="mt-4 mr-4 " @click=" deleted = ! deleted" v-show="completed">
+                        <v-icon flat>mdi-delete-circle-outline</v-icon>
+                    </v-btn>
             </v-layout>
     
         <v-layout justify-space-between=""> 

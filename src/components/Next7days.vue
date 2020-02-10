@@ -1,10 +1,15 @@
 <template>
-<v-card class="ml-lg-6 ml-2 pa-6" width="95%">
-         <form @submit="addTask" >
-            <v-btn v-if="seen1" text v-on:click='showAddTask'>
-                <v-icon left>add_circle_outline</v-icon>
-                <span>Add Task</span>
-            </v-btn>
+  <div class="ml-4">
+          <h1> Next 7 days</h1>
+          <div class="ml-4">
+        <form @submit="addTask" >
+            <div v-for="(item ,index) in items" :key="index">
+                <p class="pt-4">{{item.day}}</p>
+                <Tasks v-bind:tasks="tasks" />
+                <v-btn v-if="seen1" text v-on:click='showAddTask' >
+                    <v-icon left>add_circle_outline</v-icon>
+                    <span>Add Task</span>
+                </v-btn>
             <div v-if="seen">
               <v-row >
                 <v-col cols="12" lg="8" sm="6">
@@ -27,6 +32,7 @@
                             v-model="date"
                             label =" Schedule"
                             outlined
+                            type="date"
                             v-on="on"
                         ></v-text-field>
                         </template>
@@ -34,26 +40,42 @@
                 </v-flex>
                     </v-col>
                 </v-row>
-                <v-layout justify-end>
-                    <v-btn type="submit" color="primary">Add Task</v-btn>
-                <v-btn text v-if="seen" v-on:click.prevent='showAddTask' color="white" class="grey darken-3 ml-2">cancel</v-btn>    
-                </v-layout>   
+                <v-btn type="submit" color="primary">Add Task</v-btn>
+                <v-btn text v-if="seen" v-on:click.prevent='showAddTask'>cancle</v-btn>
+            </div>
             </div>
         </form>
-    </v-card>  
+    </div>
+  </div> 
 </template>
+
 <script>
+import Tasks from '../layout/Tasks';
+import moment from 'moment'
 export default {
-    name : "AddTaskToday",
-    data: () =>({
+  name: 'Nexy7days',
+  components: {
+    Tasks,
+  },
+  data :()=>({
+            tasks : [
+            ],
             seen: false,
             seen1 : true,
-            title:"",
-            date : new Date().toLocaleDateString(),
-            
-    }),
-    methods : {
-        addTask(e){
+            items: [
+            {day: "Today"},
+            {day: "Tomorrow"},
+            {day: moment().add(2, 'days').startOf('day').format('dddd')},
+            {day: moment().add(3, 'days').startOf('day').format('dddd')},
+            {day: moment().add(4, 'days').startOf('day').format('dddd')},
+            {day: moment().add(5, 'days').startOf('day').format('dddd')},
+            {day: moment().add(6, 'days').startOf('day').format('dddd')},
+
+            ],
+      
+  }),
+  methods :{
+      addTask(e){
             e.preventDefault();
             const newTask ={
                 title : this.title,
@@ -63,11 +85,12 @@ export default {
             // send up to parent 
             this.$emit('add-task',newTask);
             this.title ='';
-        },
-        showAddTask : function (){
+            this.tasks = [...this.tasks,newTask];
+      },
+      showAddTask : function (){
             this.seen = this.seen == true? false : true;
             this.seen1 = this.seen1 == true? false : true;
         },
-    }
+  },
 }
 </script>
